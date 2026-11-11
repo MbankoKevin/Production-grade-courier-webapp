@@ -1,4 +1,3 @@
-cat << 'EOF' > .github/workflows/deploy.yml
 name: CI/CD to AWS
 
 on:
@@ -81,4 +80,3 @@ jobs:
             docker rm courier-app || true
             docker run -d --name courier-app --restart unless-stopped -p 80:80 $IMAGE_URI
             docker image prune -f
-EOF
