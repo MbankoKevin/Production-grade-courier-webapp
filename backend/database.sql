@@ -1,59 +1,44 @@
-
-
-/*DROP SCHEMA IF EXISTS `track` ;*/
-CREATE SCHEMA IF NOT EXISTS `u230589511_cargo_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `u230589511_cargo_db` ;
-
--- -----------------------------------------------------
--- Table `library`.`item`
--- -----------------------------------------------------
-/*DROP TABLE IF EXISTS `track`.`users` ;*/
-
-CREATE TABLE IF NOT EXISTS `u230589511_cargo_db`.`users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `email` varchar(20) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`))
-ENGINE = InnoDB;
+  `email` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `users` (`user_id`, `email`, `username`,`password`) VALUES
-(1, 'kingveli@gmail.com', 'admin', md5('admin123'));
+INSERT IGNORE INTO `users` (`user_id`, `email`, `username`, `password`) VALUES
+(1, 'kingveli@gmail.com', 'admin', MD5('admin123'));
 
-
-/*DROP TABLE IF EXISTS `track`.`track` ;*/
-
-CREATE TABLE IF NOT EXISTS `u230589511_cargo_db`.`shipments` (
+CREATE TABLE IF NOT EXISTS `shipments` (
   `track_id` INT NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `jname` varchar(255) NOT NULL,
-  `jadd` varchar(255) NOT NULL,
-  `jcountry` varchar(255) NOT NULL,
-  `jemail` varchar(255) NOT NULL,
-  `jnumber` varchar(255) NOT NULL,
-  `sname` varchar(255) NOT NULL,
-  `sadd` varchar(255) NOT NULL,
-  `scountry` varchar(255) NOT NULL,
-  `semail` varchar(255) NOT NULL,
-  `snumber` varchar(255) NOT NULL,
-  `prod` varchar(255) NOT NULL,
-  `mode` varchar(255) NOT NULL,
-  `Ship_date` varchar(255) NOT NULL,
-  `carrier` varchar(255) NOT NULL,
-  `ddate` varchar(255) NOT NULL,
-  `Ship_time` varchar(255) NOT NULL,
-  `dtime` varchar(255) NOT NULL,
-  `currentl` varchar(255) NOT NULL,
-  `pickupl` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `deliverys` varchar(255) NOT NULL,
-  `cat` varchar(255) NOT NULL,
-  `weight` varchar(255) NOT NULL,
-  `item` varchar(255) NOT NULL,
-  `descrip` varchar(255) NOT NULL,
-  `ship_id` varchar(255) NOT NULL,
-  `lon` varchar(255) NOT NULL,
-  `lat` varchar(255) NOT NULL,
-
-  PRIMARY KEY (`track_id`))
-ENGINE = InnoDB;
+  `username` VARCHAR(255) NOT NULL,
+  `jname` VARCHAR(255) NOT NULL,
+  `jadd` VARCHAR(255) NOT NULL,
+  `jcountry` VARCHAR(255) NOT NULL,
+  `jemail` VARCHAR(255) NOT NULL,
+  `jnumber` VARCHAR(255) NOT NULL,
+  `sname` VARCHAR(255) NOT NULL,
+  `sadd` VARCHAR(255) NOT NULL,
+  `scountry` VARCHAR(255) NOT NULL,
+  `semail` VARCHAR(255) NOT NULL,
+  `snumber` VARCHAR(255) NOT NULL,
+  `prod` VARCHAR(255) NOT NULL,
+  `mode` VARCHAR(255) NOT NULL,
+  `Ship_date` VARCHAR(255) NOT NULL,
+  `carrier` VARCHAR(255) NOT NULL,
+  `ddate` VARCHAR(255) NOT NULL,
+  `Ship_time` VARCHAR(255) NOT NULL,
+  `dtime` VARCHAR(255) NOT NULL,
+  `currentl` VARCHAR(255) NOT NULL,
+  `pickupl` VARCHAR(255) NOT NULL,
+  `status` VARCHAR(255) NOT NULL,
+  `deliverys` VARCHAR(255) NOT NULL,
+  `cat` VARCHAR(255) NOT NULL,
+  `weight` VARCHAR(255) NOT NULL,
+  `item` VARCHAR(255) NOT NULL,
+  `descrip` VARCHAR(255) NOT NULL,
+  `ship_id` VARCHAR(255) NOT NULL,
+  `lon` VARCHAR(255) NOT NULL,
+  `lat` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`track_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
