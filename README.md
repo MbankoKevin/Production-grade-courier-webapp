@@ -114,7 +114,7 @@ flowchart TB
 ### Build and Run Locally
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/MbankoKevin/Production-grade-courier-webapp.git
    cd courier-app
    ```
 
