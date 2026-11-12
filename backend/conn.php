@@ -1,7 +1,7 @@
 <?php
 try {
     $pdo = new PDO(
-        "mysql:host=localhost;dbname=u416998565_cargo;charset=utf8mb4",
+        "mysql:host=database-1.cqzgmiwq8qx6.us-east-1.rds.amazonaws.com;dbname=courier_db;charset=utf8mb4",
         "root",
         ""
     );
