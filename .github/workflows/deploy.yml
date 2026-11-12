@@ -63,7 +63,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
-      - - name: Deploy to EC2 via SSH
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.2.0
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -83,11 +83,5 @@ jobs:
             docker pull $IMAGE_URI
             docker stop courier-app || true
             docker rm courier-app || true
-            docker run -d --name courier-app --restart unless-stopped \
-              -p 80:80 \
-              -e DB_HOST="$DB_HOST" \
-              -e DB_NAME="$DB_NAME" \
-              -e DB_USER="$DB_USER" \
-              -e DB_PASS="$DB_PASS" \
-              $IMAGE_URI
+            docker run -d --name courier-app --restart unless-stopped -p 80:80 -e DB_HOST="$DB_HOST" -e DB_NAME="$DB_NAME" -e DB_USER="$DB_USER" -e DB_PASS="$DB_PASS" $IMAGE_URI
             docker image prune -f
