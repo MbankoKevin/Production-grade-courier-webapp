@@ -1,16 +1,27 @@
 <?php
-//starting session
 session_start();
-//end user sesessions if inactivity for for more thsn 10mins
-session_unset();
-//destroying all session that exists including our username session name
-//you can also remove a single session 
-//eg session_unset('username'); this will remove only for the username session if you have many
+
+// Clear all session variables
+$_SESSION = [];
+
+// Delete the session cookie from the browser
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(
+        session_name(),
+        '',
+        time() - 42000,
+        $params["path"],
+        $params["domain"],
+        $params["secure"],
+        $params["httponly"]
+    );
+}
+
+// Destroy the session on the server
 session_destroy();
 
-
-
-//after destroying redirecting to login page
-header("Location: /logistick/index.php?session=expired");
+// Redirect cleanly to the admin login page in the same directory
+header("Location: index.php?logged_out=1");
 exit();
 ?>
